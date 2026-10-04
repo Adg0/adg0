@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adg0 · Software &amp; Open-Source Tools</title>
+  <meta name="description" content="Adg0 portfolio — privacy-focused software, local-first tools, Temperance Companion, Temperans Habits, and Socius voice reading companion." />
+  
+  <!-- Monospace Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="terminal-body">
+  <div class="full-viewport-app">
+
+    <!-- Full-Width System Status Bar -->
+    <header class="sys-top-bar">
+      <div class="sys-bar-left">
+        <span class="status-pill"><span class="dot"></span> adg0@local</span>
+        <span class="dim">|</span>
+        <span class="mono-dim">TTY: /dev/pts/0</span>
+      </div>
+      <div class="sys-bar-right">
+        <button id="skipTypingBtn" class="sys-btn" title="Skip command typing animations" aria-label="Skip typing">
+          <span class="skip-btn-desktop">[skip typing ⚡]</span>
+          <span class="skip-btn-mobile">⚡</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace (Wide Split-Pane TUI) -->
+    <div class="workspace-container">
+      
+      <!-- LEFT PANE: Identity, ASCII Avatar & Interactive Shell -->
+      <aside class="left-column">
+        
+        <!-- Header command line -->
+        <div class="terminal-cmd-block" id="cmd-block-whoami">
+          <span class="prompt">adg0@local:~$</span>
+          <span class="typed-cmd" data-text="whoami"></span><span class="active-cursor" id="globalCursor">█</span>
+        </div>
+
+        <!-- Identity Panel -->
+        <div class="identity-panel terminal-reveal-box" id="identityPanel">
+          
+          <!-- Transformed Pixelated ASCII Avatar from GitHub Profile -->
+          <div class="avatar-box">
+            <pre class="ascii-avatar">┌──────────────────────────────────────┐
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│
+│&nbsp;<span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span>&nbsp;│
+│&nbsp;<span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,62)">&nbsp;</span><span style="color:rgb(45,45,64)">&nbsp;</span><span style="color:rgb(45,45,68)">.</span><span style="color:rgb(45,45,69)">.</span><span style="color:rgb(45,45,71)">&nbsp;</span><span style="color:rgb(45,45,72)">&nbsp;</span><span style="color:rgb(45,45,69)">&nbsp;</span><span style="color:rgb(54,45,76)">.</span><span style="color:rgb(66,45,80)">.</span><span style="color:rgb(45,45,69)">&nbsp;</span><span style="color:rgb(45,45,63)">&nbsp;</span><span style="color:rgb(45,45,66)">&nbsp;</span><span style="color:rgb(45,45,61)">&nbsp;</span><span style="color:rgb(45,45,61)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,62)">&nbsp;</span>&nbsp;│
+│&nbsp;<span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,64)">.</span><span style="color:rgb(45,45,67)">.</span><span style="color:rgb(45,45,66)">.</span><span style="color:rgb(45,45,71)">.</span><span style="color:rgb(45,45,79)">.</span><span style="color:rgb(45,45,74)">.</span><span style="color:rgb(45,94,127)">:</span><span style="color:rgb(45,109,143)">-</span><span style="color:rgb(45,45,87)">.</span><span style="color:rgb(45,45,83)">.</span><span style="color:rgb(45,45,85)">.</span><span style="color:rgb(45,45,84)">.</span><span style="color:rgb(45,47,93)">.</span><span style="color:rgb(45,51,101)">.</span><span style="color:rgb(45,45,93)">.</span><span style="color:rgb(45,50,94)">.</span><span style="color:rgb(45,55,99)">:</span><span style="color:rgb(45,45,97)">.</span><span style="color:rgb(45,45,93)">.</span><span style="color:rgb(45,45,96)">.</span><span style="color:rgb(45,45,92)">.</span><span style="color:rgb(45,45,87)">.</span><span style="color:rgb(45,45,84)">.</span><span style="color:rgb(45,45,79)">.</span><span style="color:rgb(45,45,75)">&nbsp;</span><span style="color:rgb(45,45,75)">&nbsp;</span><span style="color:rgb(45,45,73)">&nbsp;</span><span style="color:rgb(45,45,70)">&nbsp;</span><span style="color:rgb(45,45,71)">&nbsp;</span>&nbsp;│
+│&nbsp;<span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">.</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">.</span><span style="color:rgb(45,45,61)">.</span><span style="color:rgb(45,45,68)">.</span><span style="color:rgb(45,45,77)">.</span><span style="color:rgb(53,45,92)">.</span><span style="color:rgb(93,59,100)">:</span><span style="color:rgb(45,45,90)">.</span><span style="color:rgb(45,47,94)">.</span><span style="color:rgb(45,48,97)">.</span><span style="color:rgb(80,56,98)">:</span><span style="color:rgb(68,75,117)">:</span><span style="color:rgb(45,95,142)">-</span><span style="color:rgb(45,90,146)">-</span><span style="color:rgb(60,79,143)">-</span><span style="color:rgb(137,152,189)">+</span><span style="color:rgb(140,149,191)">+</span><span style="color:rgb(45,69,162)">:</span><span style="color:rgb(45,48,139)">.</span><span style="color:rgb(45,62,170)">:</span><span style="color:rgb(45,46,188)">.</span><span style="color:rgb(45,45,170)">.</span><span style="color:rgb(45,67,138)">:</span><span style="color:rgb(45,73,129)">:</span><span style="color:rgb(45,65,121)">:</span><span style="color:rgb(45,60,122)">:</span><span style="color:rgb(45,58,121)">:</span><span style="color:rgb(45,55,113)">.</span><span style="color:rgb(45,48,107)">.</span><span style="color:rgb(45,45,102)">.</span><span style="color:rgb(45,45,99)">.</span><span style="color:rgb(45,45,95)">.</span><span style="color:rgb(45,45,91)">.</span><span style="color:rgb(45,45,87)">&nbsp;</span>&nbsp;│
+│&nbsp;<span style="color:rgb(45,45,60)">.</span><span style="color:rgb(45,45,65)">.</span><span style="color:rgb(45,45,75)">.</span><span style="color:rgb(45,45,78)">.</span><span style="color:rgb(45,45,78)">.</span><span style="color:rgb(46,45,83)">.</span><span style="color:rgb(53,51,92)">:</span><span style="color:rgb(59,56,99)">:</span><span style="color:rgb(54,58,100)">:</span><span style="color:rgb(59,57,101)">:</span><span style="color:rgb(71,69,108)">:</span><span style="color:rgb(85,83,123)">-</span><span style="color:rgb(79,97,136)">-</span><span style="color:rgb(86,94,145)">-</span><span style="color:rgb(69,68,126)">:</span><span style="color:rgb(45,45,86)">.</span><span style="color:rgb(56,45,115)">:</span><span style="color:rgb(132,152,221)">+</span><span style="color:rgb(73,92,203)">-</span><span style="color:rgb(45,45,98)">&nbsp;</span><span style="color:rgb(45,63,201)">:</span><span style="color:rgb(54,141,255)">=</span><span style="color:rgb(45,79,216)">:</span><span style="color:rgb(45,63,200)">:</span><span style="color:rgb(60,128,236)">=</span><span style="color:rgb(45,47,177)">:</span><span style="color:rgb(45,90,176)">-</span><span style="color:rgb(95,98,168)">-</span><span style="color:rgb(85,88,156)">-</span><span style="color:rgb(50,85,158)">-</span><span style="color:rgb(45,78,149)">:</span><span style="color:rgb(45,71,139)">:</span><span style="color:rgb(45,63,134)">:</span><span style="color:rgb(45,53,125)">.</span><span style="color:rgb(45,48,115)">.</span><span style="color:rgb(46,45,107)">.</span>&nbsp;│
+│&nbsp;<span style="color:rgb(45,45,81)">.</span><span style="color:rgb(104,53,97)">:</span><span style="color:rgb(77,53,98)">:</span><span style="color:rgb(58,54,95)">:</span><span style="color:rgb(69,58,96)">:</span><span style="color:rgb(72,59,99)">:</span><span style="color:rgb(77,63,105)">:</span><span style="color:rgb(84,72,114)">:</span><span style="color:rgb(81,76,128)">-</span><span style="color:rgb(94,113,157)">=</span><span style="color:rgb(49,66,135)">:</span><span style="color:rgb(63,93,191)">-</span><span style="color:rgb(59,93,152)">-</span><span style="color:rgb(124,169,185)">+</span><span style="color:rgb(121,159,196)">+</span><span style="color:rgb(45,45,91)">&nbsp;</span><span style="color:rgb(45,46,99)">.</span><span style="color:rgb(45,45,88)">&nbsp;</span><span style="color:rgb(45,45,137)">.</span><span style="color:rgb(45,77,172)">:</span><span style="color:rgb(45,56,166)">:</span><span style="color:rgb(45,58,167)">:</span><span style="color:rgb(45,45,130)">.</span><span style="color:rgb(45,79,165)">:</span><span style="color:rgb(77,133,242)">=</span><span style="color:rgb(46,62,155)">:</span><span style="color:rgb(76,101,228)">=</span><span style="color:rgb(87,94,212)">-</span><span style="color:rgb(110,131,207)">+</span><span style="color:rgb(136,119,185)">=</span><span style="color:rgb(104,105,181)">=</span><span style="color:rgb(60,97,181)">-</span><span style="color:rgb(71,98,170)">-</span><span style="color:rgb(111,101,156)">=</span><span style="color:rgb(104,77,144)">-</span><span style="color:rgb(49,64,145)">:</span>&nbsp;│
+│&nbsp;<span style="color:rgb(144,73,108)">-</span><span style="color:rgb(100,60,104)">:</span><span style="color:rgb(80,58,100)">:</span><span style="color:rgb(84,63,101)">:</span><span style="color:rgb(97,70,109)">-</span><span style="color:rgb(107,75,114)">-</span><span style="color:rgb(114,77,115)">-</span><span style="color:rgb(118,86,133)">-</span><span style="color:rgb(101,89,156)">-</span><span style="color:rgb(96,75,105)">-</span><span style="color:rgb(101,70,123)">-</span><span style="color:rgb(111,75,128)">-</span><span style="color:rgb(115,73,109)">-</span><span style="color:rgb(88,65,107)">:</span><span style="color:rgb(45,45,83)">.</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,98)">&nbsp;</span><span style="color:rgb(45,45,107)">&nbsp;</span><span style="color:rgb(45,45,81)">&nbsp;</span><span style="color:rgb(45,45,137)">.</span><span style="color:rgb(45,45,121)">&nbsp;</span><span style="color:rgb(47,54,104)">:</span><span style="color:rgb(94,105,164)">=</span><span style="color:rgb(95,121,203)">=</span><span style="color:rgb(59,85,127)">-</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,77,195)">:</span><span style="color:rgb(49,116,250)">=</span><span style="color:rgb(115,116,232)">=</span><span style="color:rgb(168,148,208)">*</span><span style="color:rgb(150,155,210)">*</span><span style="color:rgb(160,154,203)">*</span><span style="color:rgb(179,166,190)">*</span><span style="color:rgb(146,152,190)">+</span><span style="color:rgb(98,95,174)">-</span><span style="color:rgb(64,81,159)">-</span>&nbsp;│
+│&nbsp;<span style="color:rgb(106,63,100)">:</span><span style="color:rgb(90,62,105)">:</span><span style="color:rgb(98,66,110)">-</span><span style="color:rgb(114,71,113)">-</span><span style="color:rgb(130,82,121)">-</span><span style="color:rgb(142,91,127)">=</span><span style="color:rgb(151,93,131)">=</span><span style="color:rgb(167,100,141)">=</span><span style="color:rgb(185,114,150)">+</span><span style="color:rgb(222,136,173)">*</span><span style="color:rgb(248,152,178)">*</span><span style="color:rgb(249,153,181)">#</span><span style="color:rgb(255,207,199)">%</span><span style="color:rgb(255,193,191)">%</span><span style="color:rgb(232,154,181)">*</span><span style="color:rgb(197,144,165)">*</span><span style="color:rgb(93,70,130)">-</span><span style="color:rgb(45,59,179)">:</span><span style="color:rgb(45,45,116)">.</span><span style="color:rgb(45,45,129)">.</span><span style="color:rgb(145,161,236)">*</span><span style="color:rgb(143,178,225)">*</span><span style="color:rgb(81,115,147)">=</span><span style="color:rgb(80,80,112)">-</span><span style="color:rgb(103,93,96)">-</span><span style="color:rgb(108,104,119)">=</span><span style="color:rgb(67,107,238)">=</span><span style="color:rgb(45,74,224)">:</span><span style="color:rgb(45,45,169)">&nbsp;</span><span style="color:rgb(181,166,174)">*</span><span style="color:rgb(255,255,216)">@</span><span style="color:rgb(255,230,213)">@</span><span style="color:rgb(218,154,193)">*</span><span style="color:rgb(124,117,193)">=</span><span style="color:rgb(126,105,174)">=</span><span style="color:rgb(115,98,161)">=</span>&nbsp;│
+│&nbsp;<span style="color:rgb(131,62,101)">-</span><span style="color:rgb(123,67,111)">-</span><span style="color:rgb(129,75,118)">-</span><span style="color:rgb(142,80,123)">-</span><span style="color:rgb(153,88,130)">=</span><span style="color:rgb(166,100,139)">=</span><span style="color:rgb(198,130,151)">+</span><span style="color:rgb(229,170,166)">#</span><span style="color:rgb(220,140,174)">*</span><span style="color:rgb(243,155,177)">*</span><span style="color:rgb(245,158,184)">#</span><span style="color:rgb(249,162,190)">#</span><span style="color:rgb(248,186,193)">#</span><span style="color:rgb(250,211,213)">%</span><span style="color:rgb(251,226,237)">%</span><span style="color:rgb(206,171,215)">#</span><span style="color:rgb(113,91,169)">-</span><span style="color:rgb(162,156,222)">*</span><span style="color:rgb(51,64,118)">:</span><span style="color:rgb(158,166,184)">*</span><span style="color:rgb(100,118,186)">=</span><span style="color:rgb(106,174,238)">*</span><span style="color:rgb(138,197,232)">*</span><span style="color:rgb(93,107,157)">=</span><span style="color:rgb(45,56,138)">:</span><span style="color:rgb(45,68,169)">:</span><span style="color:rgb(59,77,217)">-</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,52,181)">:</span><span style="color:rgb(90,71,236)">-</span><span style="color:rgb(119,124,238)">+</span><span style="color:rgb(188,184,216)">#</span><span style="color:rgb(244,171,189)">#</span><span style="color:rgb(212,132,181)">*</span><span style="color:rgb(181,124,172)">+</span><span style="color:rgb(195,108,159)">+</span>&nbsp;│
+│&nbsp;<span style="color:rgb(140,58,97)">-</span><span style="color:rgb(167,75,117)">=</span><span style="color:rgb(174,80,122)">=</span><span style="color:rgb(190,95,131)">=</span><span style="color:rgb(208,109,144)">+</span><span style="color:rgb(222,121,152)">+</span><span style="color:rgb(236,139,161)">*</span><span style="color:rgb(240,147,170)">*</span><span style="color:rgb(229,132,170)">*</span><span style="color:rgb(241,149,184)">*</span><span style="color:rgb(255,166,184)">#</span><span style="color:rgb(246,172,201)">#</span><span style="color:rgb(255,226,225)">%</span><span style="color:rgb(247,229,248)">@</span><span style="color:rgb(233,213,255)">%</span><span style="color:rgb(236,227,255)">%</span><span style="color:rgb(173,187,255)">#</span><span style="color:rgb(103,100,170)">=</span><span style="color:rgb(120,136,171)">+</span><span style="color:rgb(151,106,159)">=</span><span style="color:rgb(45,45,177)">.</span><span style="color:rgb(46,82,181)">-</span><span style="color:rgb(76,101,161)">-</span><span style="color:rgb(45,46,175)">.</span><span style="color:rgb(45,45,215)">.</span><span style="color:rgb(45,63,225)">:</span><span style="color:rgb(45,45,142)">.</span><span style="color:rgb(45,45,81)">&nbsp;</span><span style="color:rgb(50,61,165)">:</span><span style="color:rgb(45,69,195)">:</span><span style="color:rgb(45,45,200)">.</span><span style="color:rgb(129,80,194)">=</span><span style="color:rgb(244,173,189)">#</span><span style="color:rgb(195,145,194)">*</span><span style="color:rgb(153,129,194)">+</span><span style="color:rgb(138,116,179)">=</span>&nbsp;│
+│&nbsp;<span style="color:rgb(113,45,80)">:</span><span style="color:rgb(134,51,88)">:</span><span style="color:rgb(175,61,107)">-</span><span style="color:rgb(241,190,163)">#</span><span style="color:rgb(255,201,180)">%</span><span style="color:rgb(248,122,161)">*</span><span style="color:rgb(241,135,167)">*</span><span style="color:rgb(250,166,177)">#</span><span style="color:rgb(248,200,181)">%</span><span style="color:rgb(255,169,176)">#</span><span style="color:rgb(209,129,196)">*</span><span style="color:rgb(195,109,237)">+</span><span style="color:rgb(185,128,230)">+</span><span style="color:rgb(131,112,229)">=</span><span style="color:rgb(91,84,227)">-</span><span style="color:rgb(84,90,185)">-</span><span style="color:rgb(49,86,192)">-</span><span style="color:rgb(45,79,255)">-</span><span style="color:rgb(45,63,221)">:</span><span style="color:rgb(45,70,216)">:</span><span style="color:rgb(45,45,162)">.</span><span style="color:rgb(45,45,97)">&nbsp;</span><span style="color:rgb(45,45,107)">&nbsp;</span><span style="color:rgb(45,45,113)">&nbsp;</span><span style="color:rgb(45,45,75)">&nbsp;</span><span style="color:rgb(45,45,82)">&nbsp;</span><span style="color:rgb(45,45,84)">&nbsp;</span><span style="color:rgb(45,45,67)">&nbsp;</span><span style="color:rgb(45,45,63)">&nbsp;</span><span style="color:rgb(45,45,91)">&nbsp;</span><span style="color:rgb(45,45,67)">&nbsp;</span><span style="color:rgb(84,45,128)">:</span><span style="color:rgb(193,126,207)">+</span><span style="color:rgb(246,164,192)">#</span><span style="color:rgb(215,136,183)">*</span><span style="color:rgb(189,137,180)">+</span>&nbsp;│
+│&nbsp;<span style="color:rgb(173,73,103)">-</span><span style="color:rgb(140,51,87)">-</span><span style="color:rgb(150,56,112)">-</span><span style="color:rgb(205,132,139)">+</span><span style="color:rgb(201,128,136)">+</span><span style="color:rgb(189,88,132)">=</span><span style="color:rgb(228,135,153)">*</span><span style="color:rgb(249,202,180)">%</span><span style="color:rgb(255,230,205)">%</span><span style="color:rgb(229,149,221)">*</span><span style="color:rgb(133,64,211)">-</span><span style="color:rgb(94,45,163)">:</span><span style="color:rgb(47,45,120)">.</span><span style="color:rgb(45,45,172)">:</span><span style="color:rgb(71,76,191)">-</span><span style="color:rgb(84,58,163)">:</span><span style="color:rgb(73,64,176)">:</span><span style="color:rgb(45,45,135)">.</span><span style="color:rgb(45,45,67)">&nbsp;</span><span style="color:rgb(45,45,76)">&nbsp;</span><span style="color:rgb(45,45,72)">&nbsp;</span><span style="color:rgb(45,45,87)">&nbsp;</span><span style="color:rgb(45,45,142)">&nbsp;</span><span style="color:rgb(45,45,125)">&nbsp;</span><span style="color:rgb(45,45,66)">&nbsp;</span><span style="color:rgb(45,45,94)">&nbsp;</span><span style="color:rgb(45,45,68)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,124)">&nbsp;</span><span style="color:rgb(45,45,93)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,131)">.</span><span style="color:rgb(161,93,231)">=</span><span style="color:rgb(255,168,186)">#</span><span style="color:rgb(252,135,179)">*</span><span style="color:rgb(246,123,156)">*</span>&nbsp;│
+│&nbsp;<span style="color:rgb(187,87,114)">=</span><span style="color:rgb(214,91,127)">=</span><span style="color:rgb(199,87,131)">=</span><span style="color:rgb(205,89,127)">=</span><span style="color:rgb(199,91,128)">=</span><span style="color:rgb(208,105,140)">+</span><span style="color:rgb(234,111,135)">+</span><span style="color:rgb(196,77,139)">=</span><span style="color:rgb(156,65,225)">=</span><span style="color:rgb(91,45,199)">:</span><span style="color:rgb(87,45,172)">.</span><span style="color:rgb(121,45,219)">:</span><span style="color:rgb(77,45,208)">:</span><span style="color:rgb(54,45,221)">:</span><span style="color:rgb(79,45,231)">:</span><span style="color:rgb(54,45,158)">.</span><span style="color:rgb(45,45,71)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,75)">&nbsp;</span><span style="color:rgb(45,45,74)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,69)">&nbsp;</span><span style="color:rgb(45,45,63)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,157)">.</span><span style="color:rgb(130,53,225)">-</span><span style="color:rgb(162,83,127)">=</span><span style="color:rgb(141,67,138)">-</span><span style="color:rgb(205,93,140)">=</span>&nbsp;│
+│&nbsp;<span style="color:rgb(139,67,102)">-</span><span style="color:rgb(162,68,105)">-</span><span style="color:rgb(134,53,98)">-</span><span style="color:rgb(137,65,108)">-</span><span style="color:rgb(202,99,131)">+</span><span style="color:rgb(226,103,144)">+</span><span style="color:rgb(176,69,168)">=</span><span style="color:rgb(135,45,226)">-</span><span style="color:rgb(125,45,255)">:</span><span style="color:rgb(141,45,239)">:</span><span style="color:rgb(166,45,255)">-</span><span style="color:rgb(86,45,169)">.</span><span style="color:rgb(49,45,151)">.</span><span style="color:rgb(56,45,169)">.</span><span style="color:rgb(45,45,99)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,87)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(98,45,88)">:</span><span style="color:rgb(62,45,76)">.</span><span style="color:rgb(45,45,94)">.</span><span style="color:rgb(91,45,121)">:</span><span style="color:rgb(94,45,105)">:</span><span style="color:rgb(101,45,99)">:</span><span style="color:rgb(106,47,110)">:</span>&nbsp;│
+│&nbsp;<span style="color:rgb(85,45,74)">.</span><span style="color:rgb(81,45,71)">.</span><span style="color:rgb(86,45,79)">.</span><span style="color:rgb(91,45,72)">:</span><span style="color:rgb(154,55,137)">-</span><span style="color:rgb(179,56,201)">=</span><span style="color:rgb(124,45,207)">:</span><span style="color:rgb(117,45,226)">:</span><span style="color:rgb(129,45,202)">:</span><span style="color:rgb(154,45,255)">:</span><span style="color:rgb(67,45,140)">.</span><span style="color:rgb(45,45,116)">&nbsp;</span><span style="color:rgb(45,45,144)">.</span><span style="color:rgb(45,45,63)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,79)">&nbsp;</span><span style="color:rgb(91,45,105)">:</span><span style="color:rgb(208,85,145)">=</span><span style="color:rgb(163,65,129)">-</span><span style="color:rgb(107,46,109)">:</span><span style="color:rgb(110,48,112)">:</span><span style="color:rgb(110,46,108)">:</span><span style="color:rgb(126,53,108)">-</span><span style="color:rgb(82,45,91)">:</span>&nbsp;│
+│&nbsp;<span style="color:rgb(62,45,63)">.</span><span style="color:rgb(93,45,83)">:</span><span style="color:rgb(109,45,88)">:</span><span style="color:rgb(167,57,142)">-</span><span style="color:rgb(192,45,232)">=</span><span style="color:rgb(152,45,245)">-</span><span style="color:rgb(121,45,211)">:</span><span style="color:rgb(123,45,237)">:</span><span style="color:rgb(121,45,200)">:</span><span style="color:rgb(133,45,253)">:</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,60)">&nbsp;</span><span style="color:rgb(45,45,73)">&nbsp;</span><span style="color:rgb(45,45,79)">&nbsp;</span><span style="color:rgb(83,45,117)">:</span><span style="color:rgb(225,107,160)">+</span><span style="color:rgb(169,74,133)">=</span><span style="color:rgb(94,45,101)">:</span><span style="color:rgb(103,45,98)">:</span><span style="color:rgb(115,46,100)">:</span><span style="color:rgb(96,45,90)">:</span><span style="color:rgb(84,45,81)">.</span><span style="color:rgb(102,45,90)">:</span>&nbsp;│
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│
+└──────────────────────────────────────┘</pre>
+          </div>
+
+          <div class="identity-text">
+            <h1 class="user-greeting">👋 Hi, I'm <span class="accent-blue">Adg0</span></h1>
+            <p class="user-subline">I build privacy-focused software and open-source tools.</p>
+            
+            <div class="spec-list">
+              <div class="spec-item"><span>ARCHITECTURE:</span> local-first / zero-telemetry</div>
+              <div class="spec-item"><span>CORE:</span> Android · Obsidian · Speech AI</div>
+              <div class="spec-item"><span>PHILOSOPHY:</span> user sovereignty &amp; offline data</div>
+            </div>
+
+            <div class="quick-links-row">
+              <a href="https://github.com/Adg0" target="_blank" rel="noopener" class="term-link">↳ [github.com/Adg0]</a>
+              <button id="copyBtn" class="term-btn">[copy handle]</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Terminal Shell Prompt Box -->
+        <div class="shell-box" id="shellBox">
+          <div class="shell-bar">┌─ INTERACTIVE SHELL ────────────────────────┐</div>
+          <div class="shell-body">
+            <div class="shell-output" id="shellOutput">Type a command or click one below:</div>
+            <form id="shellForm" class="shell-input-line" autocomplete="off">
+              <label for="shellInput" class="shell-prompt">adg0:~$</label>
+              <input type="text" id="shellInput" class="shell-field" placeholder="help, companion, socius..." autocapitalize="none" autocorrect="off" autocomplete="off" spellcheck="false" />
+            </form>
+            <div class="shell-chips">
+              <button type="button" class="cmd-chip" data-command="help">help</button>
+              <button type="button" class="cmd-chip" data-command="companion">companion</button>
+              <button type="button" class="cmd-chip" data-command="temperans">temperans</button>
+              <button type="button" class="cmd-chip" data-command="socius">socius</button>
+              <button type="button" class="cmd-chip" data-command="socius --story">socius --story</button>
+              <button type="button" class="cmd-chip" data-command="systems">systems</button>
+              <button type="button" class="cmd-chip" data-command="github">github</button>
+              <button type="button" class="cmd-chip" data-command="clear">clear</button>
+            </div>
+          </div>
+          <div class="shell-bar">└────────────────────────────────────────────┘</div>
+        </div>
+
+      </aside>
+
+            <!-- RIGHT PANE: Featured Work Cards (Full Wide Space) -->
+      <main class="right-column">
+        
+        <!-- Header command line -->
+        <div class="terminal-cmd-block" id="cmd-block-projects">
+          <span class="prompt">adg0@local:~$</span>
+          <span class="typed-cmd" data-text="fetch --projects --featured --all"></span>
+        </div>
+
+        <div class="section-headline" id="sectionHeadline">
+          <h2>🚀 Featured Work</h2>
+          <span class="headline-meta">// 4 modules active</span>
+        </div>
+
+        <!-- Wide Grid of ASCII Box Cards -->
+        <div class="ascii-cards-grid" id="cardsGrid">
+          
+          <!-- CARD 1: Temperance Companion -->
+          <div class="project-card-unit" id="card-companion">
+            <div class="unit-cmd">
+              <span class="prompt">adg0@local:~$</span>
+              <span class="typed-cmd" data-text="run temperance-companion --health-connect"></span>
+            </div>
+            <div class="card-wrap">
+              <pre class="ascii-card">┌────────────────────────────────────────────────────┐
+│ Temperance Companion                               │
+│ <span class="status-tag status-released">[Status: Released]</span>                                 │
+│ Android → Health Connect → Obsidian                │
+│ Kotlin · Compose · Health Connect · SAF            │
+│                                                    │
+│ Privacy-first companion for personal data.         │
+│                                                    │
+│ • Offline-first bridge between Health & Obsidian   │
+│ • 0 INTERNET permissions — zero telemetry          │
+│ • 12 Health Connect metrics staged to local JSON   │
+│ • Habit counters & elapsed-time timers             │
+│                                                    │
+│ ↳ [<a href="https://github.com/Adg0/android-companion" target="_blank" rel="noopener">github.com/Adg0/android-companion</a>]              │
+└────────────────────────────────────────────────────┘</pre>
+            </div>
+          </div>
+
+          <!-- CARD 2: Temperans Habits -->
+          <div class="project-card-unit" id="card-temperans">
+            <div class="unit-cmd">
+              <span class="prompt">adg0@local:~$</span>
+              <span class="typed-cmd" data-text="cat temperans-habits.md --heatmap"></span>
+            </div>
+            <div class="card-wrap">
+              <pre class="ascii-card">┌────────────────────────────────────────────────────┐
+│ Obsidian Habit Tools (Temperans Habits)            │
+│ <span class="status-tag status-published">[Status: Published]</span>                                │
+│ TypeScript · Obsidian API · Markdown               │
+│                                                    │
+│ Markdown-first habit tracker & heat map.           │
+│                                                    │
+│ • 3 archetypes: Build, Avoidance & Non-streak      │
+│ • Cadences: daily, weekly, monthly, annual         │
+│ • Interactive annual heat map & log inspector      │
+│ • Ingests staging JSON from companion apps & APIs  │
+│                                                    │
+│ ↳ [<a href="https://github.com/Adg0/temperans" target="_blank" rel="noopener">github.com/Adg0/temperans</a>]                      │
+└────────────────────────────────────────────────────┘</pre>
+            </div>
+          </div>
+
+          <!-- CARD 3: Socius / OmniVoice -->
+          <div class="project-card-unit" id="card-socius">
+            <div class="unit-cmd">
+              <span class="prompt">adg0@local:~$</span>
+              <span class="typed-cmd" data-text="exec socius --reading-partner --tts"></span>
+            </div>
+            <div class="card-wrap">
+              <pre class="ascii-card">┌────────────────────────────────────────────────────┐
+│ Socius — The Reading Partner 📖 🔊                   │
+│ <span class="status-tag status-dev">[Status: In Development]</span>                           │
+│ Python · Speech Synthesis · Vision AI · TTS        │
+│                                                    │
+│ AI-powered reading companion turning screenshots   │
+│ and dense documents into natural audio narration   │
+│ and accessible explanations, with custom voices.   │
+│                                                    │
+│ • Screen snip to natural audio narration in sec    │
+│ • Adaptive breakdown for dense technical docs      │
+│ • Read with personalized voice clone or custom TTS │
+│                                                    │
+│ ↳ [<a href="https://github.com/Adg0" target="_blank" rel="noopener">github.com/Adg0</a>]                                │
+└────────────────────────────────────────────────────┘</pre>
+            </div>
+          </div>
+
+          <!-- CARD 4: Other Systems -->
+          <div class="project-card-unit" id="card-systems">
+            <div class="unit-cmd">
+              <span class="prompt">adg0@local:~$</span>
+              <span class="typed-cmd" data-text="ls -la /systems/protocols/defi"></span>
+            </div>
+            <div class="card-wrap">
+              <pre class="ascii-card">┌────────────────────────────────────────────────────┐
+│ Other Systems & Open Source Work                   │
+│ <span class="status-tag status-experimental">[Status: Experimental & earlier work]</span>              │
+│ Go · Python · Algorand · State Machines            │
+│                                                    │
+│ • DeFi4NFT: Algorand borrow/lend protocol          │
+│   Non-custodial health factor state machine in Go  │
+│   ↳ [<a href="https://github.com/Adg0/DeFi4NFT" target="_blank" rel="noopener">github.com/Adg0/DeFi4NFT</a>]                     │
+│                                                    │
+│ • CoinFog: Cryptographic transaction mixer         │
+│   Privacy-preserving asset mixer in Python         │
+│   ↳ [<a href="https://github.com/Adg0/CoinFog" target="_blank" rel="noopener">github.com/Adg0/CoinFog</a>]                      │
+│                                                    │
+│ • Jina: Non-custodial NFT collateral protocol      │
+│   Collateralize assets while held in wallet (Go)   │
+│   ↳ [<a href="https://github.com/Adg0/Jina" target="_blank" rel="noopener">github.com/Adg0/Jina</a>]                         │
+└────────────────────────────────────────────────────┘</pre>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- Terminal Footer Bar -->
+    <footer class="sys-bottom-bar" id="workspaceFooter">
+      <div class="sys-bottom-left">
+        <span class="footer-prompt">$</span>
+        <span class="footer-brand">Adg0</span>
+        <span class="dim">·</span>
+        <span class="footer-msg">Privacy-focused software &amp; open-source</span>
+      </div>
+      <div class="sys-bottom-right">
+        <a href="https://github.com/Adg0" target="_blank" rel="noopener" class="term-link">↳ [github.com/Adg0]</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
