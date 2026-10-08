@@ -3,15 +3,6 @@
 > **Local-first · Privacy-focused · Open Source**  
 > I build software that keeps users in control of their data.
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│   ......:--:..        adg0@local:~$ open portfolio           │
-│  .:--=++#*+-: :*-     > Launching interactive terminal...    │
-│  :---=*+***@@+=-+                                            │
-│  :-=+++++*#%##==-     ▶ https://adg0.github.io/adg0/         │
-└──────────────────────────────────────────────────────────────┘
-```
-
 👉 **[⚡ Launch Interactive Portfolio Workspace ↗](https://adg0.github.io/adg0/)**  
 *(Widescreen ASCII interface · Live terminal shell · Audio companion demos)*
 
